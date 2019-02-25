@@ -1,0 +1,10 @@
+FROM node:8.14.0-alpine
+
+RUN apk add --update alpine-sdk git python make
+
+WORKDIR /app
+
+COPY . ./
+RUN npm install
+
+ENTRYPOINT [ "npm", "start" ]

@@ -660,8 +660,8 @@ function settings (container, self) {
   selectExEnv.addEventListener('change', function (event) {
     let context = selectExEnv.options[selectExEnv.selectedIndex].value
     executionContext.executionContextChange(context, null, () => {
-      modalDialogCustom.confirm(null, 'Are you sure you want to connect to an ethereum node?', () => {
-        modalDialogCustom.prompt(null, 'Web3 Provider Endpoint', 'http://localhost:8545', (target) => {
+      modalDialogCustom.confirm(null, 'Are you sure you want to connect to a Smilo node?', () => {
+        modalDialogCustom.prompt(null, 'Web3 Provider Endpoint', 'https://testnet-wallet.smilo.network/api', (target) => {
           executionContext.setProviderFromEndpoint(target, context, (alertMsg) => {
             if (alertMsg) {
               modalDialogCustom.alert(alertMsg)

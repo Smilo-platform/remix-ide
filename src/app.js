@@ -59,6 +59,10 @@ var css = csjs`
   pre {
     overflow-x: auto;
   }
+  .logo {
+    width: calc(100% - 20px);
+    padding: 8px;
+  }  
   .browsersolidity     {
     position           : relative;
     width              : 100vw;
@@ -203,6 +207,7 @@ class App {
     if (self._view.el) return self._view.el
     self._view.leftpanel = yo`
       <div id="filepanel" class=${css.leftpanel}>
+        <img src="assets/img/short-hand-logo.png" class=${css.logo}>
         ${''}
       </div>
     `
@@ -513,9 +518,9 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
       let endPointUrl = queryParams.get().endPointUrl
       executionContext.setContext(context, endPointUrl,
       () => {
-        modalDialogCustom.confirm(null, 'Are you sure you want to connect to an ethereum node?', () => {
+        modalDialogCustom.confirm(null, 'Are you sure you want to connect to a Smilo node?', () => {
           if (!endPointUrl) {
-            endPointUrl = 'http://localhost:8545'
+            endPointUrl = 'https://testnet-wallet.smilo.network/api'
           }
           modalDialogCustom.prompt(null, 'Web3 Provider Endpoint', endPointUrl, (target) => {
             executionContext.setProviderFromEndpoint(target, context)
