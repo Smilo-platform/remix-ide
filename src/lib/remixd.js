@@ -31,7 +31,7 @@ class Remixd {
       } catch (e) {}
     }
     this.event.trigger('connecting', [])
-    this.socket = new WebSocket('ws://localhost:' + this.port, 'echo-protocol') // eslint-disable-line
+    this.socket = new WebSocket('wss://localhost:' + this.port, 'echo-protocol') // eslint-disable-line
 
     this.socket.addEventListener('open', (event) => {
       this.connected = true
